@@ -1,0 +1,48 @@
+<%- include('includes/head'); %>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/cadastro">TaskFlow</a>
+        
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>          
+    </nav>
+    <div class="container">
+        <form class="login">  
+            <h1>TaskFlow</h1>
+            <h2 class="">Login</h2>
+    
+            <div id="msgError">Usuário ou senha incorretos</div>
+            <div class="box">
+                <input type="email" id="email" required autocomplete="off" placeholder="E-mail">
+                <!-- <label id="usuarioLabel" for="usuario">Usuário</label> -->
+            </div>
+            
+            <div class="box">
+                <input type="password" id="senha" required autocomplete="off" placeholder="Senha">
+                <!-- <label id="senhaLabel" for="senha">Senha</label> -->
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+    
+            <div class="btn-entrar">
+                <button type="submit">Entrar</button>
+            </div>
+    
+            <div>
+                <p>Não possui uma conta?</p>
+                <a href="/cadastro" class="cadastro">Efetuar cadastro!</a>
+            </div>
+    
+            
+        </form>
+    </div>
+    
+
+    <!-- <script src="./assets/js/index.bundle.js"></script> -->
+</body>
+</html>

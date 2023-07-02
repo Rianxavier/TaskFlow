@@ -1,0 +1,76 @@
+<%- include('includes/head'); %>
+
+<link rel="stylesheet" href="./assets/css/styleCadastro.css">
+<body>
+    <div class="container">
+        <form action="/cadastro/register" class="cadastro" method="POST">  
+            <h1>TaskFlow</h1>
+            <h2 class="">Cadastro</h2>
+    
+            <% if (errors.length > 0) { %>
+                <div class="row">
+                    <div class="col my-3">
+                        <div class="alert-danger">
+                            <% errors.forEach(erro => { %>
+                                <%= erro  %> <br>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                
+                <% if (success.length > 0) { %>
+                <div class="row">
+                    <div class="col my-3">
+                        <div class="alert-success">
+                            <% success.forEach(success => { %>
+                                <%= success  %> <br>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+    
+                <!-- <div class="alert-success">Usuário cadastrado com sucesso</div> -->
+                
+                <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="box"> 
+                <input type="text" id="nome" name="nome" required autocomplete="off" placeholder="Nome">
+                <label id="labelNome" for="nome">Nome</label>
+            </div>
+            <div class="box">
+                
+                <input type="email" id="email" name="email" required autocomplete="off" placeholder="E-mail">
+                <label id="labelUsuario" for="email">E-mail</label>
+            </div>
+            
+    
+            <div class="box">
+                <input type="password" id="senha" name="senha" required autocomplete="off" placeholder="Senha">
+                <label id="labelSenha" for="senha">Senha</label>
+                <i id="vSenha" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+            <div class="box">
+                <input type="password" id="confirmSenha" name="confirmSenha" required autocomplete="off" placeholder="Confirmar Senha">
+                <label id="labelConfirmarSenha" for="confirmSenha">Confirmar senha</label>
+                <i id="eye" class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+    
+            <div class="btn-cadastro">
+                <button type="submit">Cadastrar</button>
+            </div>
+    
+            <div>
+                <p>Já possui uma conta?</p>
+                <a href="/" class="backLogin">Login!</a>
+            </div>
+    
+            
+            
+        </form>
+    </div>
+    
+    <script src="/cadastro.js"></script>
+    <!-- <script src="./assets/js/cadastrar.bundle.js"></script> -->
+</body>
+</html>
