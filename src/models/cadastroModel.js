@@ -32,7 +32,7 @@ class Cadastro{
         this.cleanUp();
 
         this.user = await CadastroModel.findOne({ email: this.body.email });
-        if (this.user) this.errors.push('Usuario já existe')
+        if (this.user) this.errors.push('O e-mail fornecido já está em uso. Por favor, escolha outro e-mail.')
 
     }
 

@@ -7,42 +7,39 @@ const inputConfirmarSenha = formCadastro.querySelector('#confirmSenha');
 
 const btnVerSenha = document.querySelector('#vSenha');
 const btnVerConfSenha = document.querySelector('#eye');
-let senhaVerifica = false;
+
+//  Mensagens de Erros variaveis
+const errorEmail = document.querySelector('.alert-danger');
+const errorNome = document.querySelector('.error-nome');
+const errorSenha = document.querySelector('.error-senha');
+const errorSenhaTamanho = document.querySelector('.error-senhaTamanho');
+
 
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if(senhaVerifica) {
-        formCadastro.submit();
+    if (inputNome.value.length < 2) {
+        errorNome.setAttribute('style','display: flex' )
+    }
+    else if(inputSenha.value.length < 4 || inputSenha.value.length > 30) {
+        errorNome.setAttribute('style','display: none' )
+        errorSenhaTamanho.setAttribute('style', 'display: flex');
+    }
+    else if(inputSenha.value !== inputConfirmarSenha.value) { 
+        errorNome.setAttribute('style', 'display: none');
+        errorSenhaTamanho.setAttribute('style', 'display: none');
+        errorSenha.setAttribute('style', 'display: flex');
     } else{
-        alert('Senha incorreta');
+        errorSenhaTamanho.setAttribute('style', 'display: none');
+        errorSenha.setAttribute('style', 'display: none');
+        errorNome.setAttribute('style', 'display: none');
+        
+        formCadastro.submit();
     }
     
 
 
 })
-
-inputSenha.addEventListener("keyup", passwordIsWrong);
-inputConfirmarSenha.addEventListener("keyup", passwordIsWrong);
-
-function passwordIsWrong(){
-    if (inputSenha.value !== inputConfirmarSenha.value){
-        inputConfirmarSenha.setAttribute('style', 'color: red');
-        inputConfirmarSenha.setAttribute('style', ': red');
-        inputConfirmarSenha.setAttribute('style', 'border-color: red');
-        senhaVerifica = false;
-    }else{
-        inputConfirmarSenha.setAttribute('style', 'color: black');
-        inputConfirmarSenha.setAttribute('style', 'border-color: #FF0000');
-        senhaVerifica = true;
-    }
-    if(inputConfirmarSenha.value.length == 0){
-        inputConfirmarSenha.setAttribute('style', 'color: black');
-        inputConfirmarSenha.setAttribute('style', 'border-color: #FF0000');
-        senhaVerifica = false;
-    }
-};
-
 
 
 btnVerSenha.addEventListener("click", verSenha);

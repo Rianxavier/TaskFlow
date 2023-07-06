@@ -31,9 +31,10 @@
                 </div>
                 <% } %>
     
-                <!-- <div class="alert-success">Usuário cadastrado com sucesso</div> -->
                 
+                <!-- <div class="alert-danger">O e-mail fornecido já está em uso. Por favor, escolha outro e-mail</div> -->
                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+            <div class="error-nome">Nome precisa ter pelo menos 2 caracteres</div>
             <div class="box"> 
                 <input type="text" id="nome" name="nome" required autocomplete="off" placeholder="Nome">
                 <label id="labelNome" for="nome">Nome</label>
@@ -44,12 +45,13 @@
                 <label id="labelUsuario" for="email">E-mail</label>
             </div>
             
-    
+            <div class="error-senhaTamanho">Senha precisa ter entre 4 e 30 caracteres</div>
             <div class="box">
                 <input type="password" id="senha" name="senha" required autocomplete="off" placeholder="Senha">
                 <label id="labelSenha" for="senha">Senha</label>
                 <i id="vSenha" class="fa fa-eye" aria-hidden="true"></i>
             </div>
+            <div class="error-senha">Senhas não correspondem</div>
             <div class="box">
                 <input type="password" id="confirmSenha" name="confirmSenha" required autocomplete="off" placeholder="Confirmar Senha">
                 <label id="labelConfirmarSenha" for="confirmSenha">Confirmar senha</label>
