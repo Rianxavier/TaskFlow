@@ -7,18 +7,18 @@
             <h1>TaskFlow</h1>
             <h2 class="">Cadastro</h2>
     
-            <% if (errors.length > 0) { %>
-                <div class="row">
-                    <div class="col my-3">
-                        <div class="alert-danger">
-                            <% errors.forEach(erro => { %>
-                                <%= erro  %> <br>
-                            <% }); %>
+                <% if (errors.length > 0) { %>
+                    <div class="row">
+                        <div class="col my-3">
+                            <div class="alert-danger">
+                                <% errors.forEach(erro => { %>
+                                    <%= erro  %> <br>
+                                <% }); %>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <% } %>
-                
+
                 <% if (success.length > 0) { %>
                 <div class="row">
                     <div class="col my-3">
@@ -59,7 +59,7 @@
             </div>
     
             <div class="btn-cadastro">
-                <button type="submit">Cadastrar</button>
+                <button class="btn" type="submit">Cadastrar</button>
             </div>
     
             <div>

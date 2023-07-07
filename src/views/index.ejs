@@ -13,19 +13,43 @@
         </svg>          
     </nav>
     <div class="container">
-        <form class="login">  
+        <form action="/login" method="POST" class="login" >   
             <h1>TaskFlow</h1>
             <h2 class="">Login</h2>
-    
+            
+            <% if (errors.length > 0) { %>
+                <div class="row">
+                    <div class="col my-3">
+                        <div class="alert-danger">
+                            <% errors.forEach(erro => { %>
+                                <%= erro  %> <br>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+            <% if (success.length > 0) { %>
+            <div class="row">
+                <div class="col my-3">
+                    <div class="alert-success">
+                        <% success.forEach(success => { %>
+                            <%= success  %> <br>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
             <!-- <div id="msgError">Usuário ou senha incorretos</div> -->
             <div class="box">
-                <input type="email" id="email" required autocomplete="off" placeholder="E-mail">
-                <!-- <label id="usuarioLabel" for="usuario">Usuário</label> -->
+                <input type="email" name="email" id="email" required autocomplete="off" placeholder="E-mail">
+                <label id="usuarioLabel" for="usuario">Usuário</label>
             </div>
             
             <div class="box">
-                <input type="password" id="senha" required autocomplete="off" placeholder="Senha">
-                <!-- <label id="senhaLabel" for="senha">Senha</label> -->
+                <input type="password" name="senha" id="senha" required autocomplete="off" placeholder="Senha">
+                <label id="senhaLabel" for="senha">Senha</label>
                 <i class="fa fa-eye" aria-hidden="true"></i>
             </div>
     
@@ -42,7 +66,7 @@
         </form>
     </div>
     
-
+    <script src="/index.js"></script>
     <!-- <script src="./assets/js/index.bundle.js"></script> -->
 </body>
 </html>
