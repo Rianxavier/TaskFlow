@@ -1,3 +1,8 @@
+
+exports.erro = (req, res) => {
+    res.render('404');
+    return;
+};
 exports.paginaInicial = (req, res) => {
     res.render('index');
     return;

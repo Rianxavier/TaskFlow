@@ -1,0 +1,42 @@
+<%- include('includes/head'); %>
+
+    <link rel="stylesheet" href="./assets/css/styleAddTarefa.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/cadastro">TaskFlow</a>
+        <a href="/logout">Sair</a>
+        
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>           -->
+    </nav>
+    
+    <main class="main">    
+        <form class="tarefa" action="/adicionarTarefas/register">
+            <h1 class="titulo">Adicionar Tarefa</h1>
+            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+           <input type="text" value="<%=user._id  %>">
+             <div class="box"> 
+                <input type="text" id="titulo" name="titulo" required autocomplete="off" placeholder="Titulo:">
+                <label id="labelTitulo" for="nome">Titulo:</label>
+            </div>
+            <div class="container">
+                <div class="box"> 
+                    <input type="text" id="tarefa" name="tarefa[0]" required autocomplete="off" placeholder="Tarefa:">
+                    <label id="labelTitulo" for="nome">Tarefa:</label>
+                </div>
+            </div>
+             
+            <button type="button" id="addTarefaButton">+</button>
+            <button type="submit" id="buttonSalvar">Salvar</button>
+        </form>
+    </main>
+    
+    
+    <script src="/tarefaAdd.js"></script>
+    <!-- <script src="./assets/js/index.bundle.js"></script> -->
+</body>
+</html>

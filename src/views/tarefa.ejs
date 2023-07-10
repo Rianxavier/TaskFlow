@@ -1,0 +1,138 @@
+<%- include('includes/head'); %>
+
+    <link rel="stylesheet" href="./assets/css/styleTarefa.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/cadastro">TaskFlow</a>
+        <a href="/logout">Sair</a>
+        
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>           -->
+    </nav>
+    <div class="topo">
+        <h2>Bem vindo, <%= user.nome  %></h2>
+        <button type="button"> <a class="addTarefas" href="/adicionarTarefas">Adicionar Tarefa</a></button>
+    </div>
+    
+    <main>
+        <h1 class="titulo">Tarefas</h1>
+        <div class="container">
+
+            <div class="card" tabindex="0">
+                <div class="card-inner">
+                <div class="card-front">
+                    <h3>Ir ao mercado </h3>
+                </div>
+                <div class="card-back">
+                    <h3>Ir ao mercado</h3>
+                    <ul>
+                        <li>
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Pão</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Leite</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item3">
+                        <label for="item3">Ovos</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item4">
+                        <label for="item4">Frutas</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item5">
+                        <label for="item5">Legumes</label>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-inner">
+                <div class="card-front">
+                    <h3>Trabalho Faculdade </h3>
+                </div>
+                <div class="card-back">
+                    <h3>Trabalho Faculdade</h3>
+                    <ul>
+                        <li>
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Estudar conteúdo</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Terminar texto</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Fazer slide</label>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-inner">
+                <div class="card-front">
+                    <h3>Casa </h3>
+                </div>
+                <div class="card-back">
+                    <h3>Casa</h3>
+                    <ul>
+                        <li>
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Colocar roupa pra lavar</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Lavar louça</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item3">
+                        <label for="item3">Lavar banheiro</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item4">
+                        <label for="item4">Estender roupa</label>
+                        </li>
+    
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="card" tabindex="0">
+                <div class="card-inner">
+                <div class="card-front">
+                    <h3>Prova </h3>
+                </div>
+                <div class="card-back">
+                    <h3>Prova</h3>
+                    <ul>
+                        <li>
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Estudar Conteúdo</label>
+                        </li>
+                        <li>
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Fazer execícios</label>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    
+    <script src="/tarefa.js"></script>
+    <!-- <script src="./assets/js/index.bundle.js"></script> -->
+</body>
+</html>
