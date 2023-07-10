@@ -40,6 +40,23 @@ nav svg {
   color: black;
 }
 
+button {
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 15px;
+  margin: 10px;
+  color: white;
+  background: linear-gradient(
+    241.69deg,
+    #ff5800 7.46%,
+    rgba(252, 87, 0, 0.44) 156.38%
+  );
+  font-size: 14px;
+  letter-spacing: 0.6px;
+}
+
 .addTarefas {
   text-decoration: none;
   color: white;

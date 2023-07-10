@@ -6,7 +6,10 @@
 
     <nav>
         <a href="/cadastro">TaskFlow</a>
-        <a href="/logout">Sair</a>
+        <div class="float-rigth">
+            <a href="/tarefa">Tarefas</a>
+            <a href="/logout">Sair</a>
+        </div>
         
 
         <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -14,11 +17,26 @@
         </svg>           -->
     </nav>
     
+    
+
     <main class="main">    
-        <form class="tarefa" action="/adicionarTarefas/register">
+        <form class="tarefa" action="/adicionarTarefas/register" method="POST">
             <h1 class="titulo">Adicionar Tarefa</h1>
+
+            <% if (success.length > 0) { %>
+                <div class="row">
+                    <div class="col my-3">
+                        <div class="alert-success">
+                            <% success.forEach(success => { %>
+                                <%= success  %> <br>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
             <input type="hidden" name="_csrf" value=<%= csrfToken %>>
-           <input type="text" value="<%=user._id  %>">
+           <input type="hidden"  name="id" value="<%=user._id  %>">
              <div class="box"> 
                 <input type="text" id="titulo" name="titulo" required autocomplete="off" placeholder="Titulo:">
                 <label id="labelTitulo" for="nome">Titulo:</label>

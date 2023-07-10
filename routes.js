@@ -22,5 +22,7 @@ route.get("/logout", loginController.logout);
 //Rotas de tarefas
 route.get("/tarefa", loginRequired, tarefaController.index);
 route.get("/adicionarTarefas", loginRequired, tarefaController.adicionarTarefas);
+route.post("/adicionarTarefas/register", tarefaController.register)
+
 
 module.exports = route;

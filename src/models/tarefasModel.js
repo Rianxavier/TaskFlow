@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const tarefaSchema = new mongoose.Schema({
   userId: { type: String, required: true },
@@ -6,4 +6,7 @@ const tarefaSchema = new mongoose.Schema({
   tarefas: [{ type: String }],
 });
 
-const tarefaModel = new mongoose.Model('tarefas', tarefaSchema);
+const tarefaModel = mongoose.model("tarefas", tarefaSchema);
+
+module.exports = tarefaModel;
+
