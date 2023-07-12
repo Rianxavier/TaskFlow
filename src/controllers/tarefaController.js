@@ -10,17 +10,18 @@ exports.adicionarTarefas = function (req, res, next) {
 
 exports.register = async (req, res) => {
   try {
-    const { id, titulo, tarefa } = req.body;
+
+     const { id, titulo, tarefa } = req.body;
 
     // Cria um novo objeto de tarefa com os dados fornecidos
     const novaTarefa = new Tarefa({
       userId: id,
       titulo,
-      tarefas: tarefa,
+      tarefas: tarefa.map(t => ({tarefa: t})),
     });
 
     // Salva a nova tarefa no banco de dados
-    await novaTarefa.save();
+    await novaTarefa.register();
 
     if (res.status(201)) {
       req.flash("success", "Tarefa Salva");
