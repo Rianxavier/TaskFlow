@@ -22,112 +22,31 @@
         <h1 class="titulo">Tarefas</h1>
         <div class="container">
 
-            <div class="card" tabindex="0">
-                <div class="card-inner">
-                <div class="card-front">
-                    <h3>Ir ao mercado </h3>
+            <% if(tarefas.length>0){ %>
+                <% tarefas.forEach(tarefa => { %>
+                <div class="card" tabindex="0">
+                    <div class="card-inner">
+                    <div class="card-front">
+                        <h3> <%=tarefa.titulo %> </h3>
+                    </div>
+                    <div class="card-back">
+                        <h3><%=tarefa.titulo %></h3>
+                        <ul>
+                            <% tarefa.tarefas.forEach(subtarefas => { %>
+                            <li>
+                            <input type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item1">
+                            <label for="item1"><%= subtarefas.tarefa  %></label>
+                            </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                    <h3>Ir ao mercado</h3>
-                    <ul>
-                        <li>
-                        <input type="checkbox" id="item1">
-                        <label for="item1">Pão</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item2">
-                        <label for="item2">Leite</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item3">
-                        <label for="item3">Ovos</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item4">
-                        <label for="item4">Frutas</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item5">
-                        <label for="item5">Legumes</label>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-            <div class="card" tabindex="0">
-                <div class="card-inner">
-                <div class="card-front">
-                    <h3>Trabalho Faculdade </h3>
-                </div>
-                <div class="card-back">
-                    <h3>Trabalho Faculdade</h3>
-                    <ul>
-                        <li>
-                        <input type="checkbox" id="item1">
-                        <label for="item1">Estudar conteúdo</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item1">
-                        <label for="item1">Terminar texto</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item2">
-                        <label for="item2">Fazer slide</label>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-            <div class="card" tabindex="0">
-                <div class="card-inner">
-                <div class="card-front">
-                    <h3>Casa </h3>
-                </div>
-                <div class="card-back">
-                    <h3>Casa</h3>
-                    <ul>
-                        <li>
-                        <input type="checkbox" id="item1">
-                        <label for="item1">Colocar roupa pra lavar</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item2">
-                        <label for="item2">Lavar louça</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item3">
-                        <label for="item3">Lavar banheiro</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item4">
-                        <label for="item4">Estender roupa</label>
-                        </li>
-    
-                    </ul>
-                </div>
-                </div>
-            </div>
-            <div class="card" tabindex="0">
-                <div class="card-inner">
-                <div class="card-front">
-                    <h3>Prova </h3>
-                </div>
-                <div class="card-back">
-                    <h3>Prova</h3>
-                    <ul>
-                        <li>
-                        <input type="checkbox" id="item1">
-                        <label for="item1">Estudar Conteúdo</label>
-                        </li>
-                        <li>
-                        <input type="checkbox" id="item2">
-                        <label for="item2">Fazer execícios</label>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </div>
+                <% }) %>
+            <% } else { %>
+                <p>Você não possui nenhuma tarefa no momento!</p>
+            <% } %>
+        </div> 
         
     </main>
     

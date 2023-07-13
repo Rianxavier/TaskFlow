@@ -19,6 +19,11 @@ const tarefaModel = mongoose.model("tarefas", tarefaSchema);
      async register(){
       this.tarefa =  await tarefaModel.create(this.body)
      }
+
+     static async findTask(idUser){
+        const tarefas = await tarefaModel.find({idUser}).exec();
+        return tarefas;
+     }
 }
 
 
