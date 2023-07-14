@@ -2,8 +2,9 @@ const Tarefa = require("../models/tarefasModel");
 
 exports.index = async function (req, res, next) {
   try {
-    const idUser = req.session._id;
+    const idUser = req.session.user._id;
     const tarefas = await Tarefa.findTask(idUser);
+
     res.render("tarefa", { tarefas });
   } catch (error) {
     console.log("Erro ao obter as tarefas:", error);
