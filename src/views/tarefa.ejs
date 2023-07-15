@@ -37,7 +37,7 @@
                             <h3><%=tarefa.titulo %>:</h3>
                             <div class="icones">
                                 <a href=""><i class="fas fa-edit"></i></a>
-                                <a href="/tarefa/delete/<%= tarefa._id  %>"><i class="fas fa-trash"></i></a>
+                                <a href="/tarefa/delete/<%= tarefa._id  %>" class="deleteLink"><i class="fas fa-trash"></i></a>
                             </div>
                             
                         </div>
@@ -62,6 +62,14 @@
                 </div>
                 
             <% } %>
+            <div class="msgConfirmDelete">
+                <p id="alertText">Tem certeza que deseja deletar a tarefa toda?</p>
+                <div class="buttonContainer">
+                    <button class="alertBtn confirmDeleteBtn" type="button">Deletar</button>
+                    <button class="alertBtn cancelDeleteBtn" type="button">Manter</button>
+                </div>
+                
+            </div>
         </div> 
         
     </main>
