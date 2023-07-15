@@ -37,7 +37,7 @@
                             <h3><%=tarefa.titulo %>:</h3>
                             <div class="icones">
                                 <a href=""><i class="fas fa-edit"></i></a>
-                                <a href=""><i class="fas fa-trash"></i></a>
+                                <a href="/tarefa/delete/<%= tarefa._id  %>"><i class="fas fa-trash"></i></a>
                             </div>
                             
                         </div>
@@ -48,7 +48,7 @@
                             <input type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item1">
                             <label for="item1"><%= subtarefas.tarefa  %></label>
                             <!-- <a href=""><i class="fas fa-edit"></i></a> -->
-                            <a href=""><i class="fas fa-trash"></i></a>
+                            <a href="/tarefa/deleteSubTask/<%= subtarefas._id  %>"><i class="fas fa-trash"></i></a>
                             </li>
                             <% }) %>
                         </ul>

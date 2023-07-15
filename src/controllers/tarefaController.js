@@ -19,16 +19,14 @@ exports.adicionarTarefas = function (req, res, next) {
 exports.register = async (req, res) => {
   try {
 
-     const { id, titulo, tarefa } = req.body;
+    const { id, titulo, tarefa } = req.body;
 
-    // Cria um novo objeto de tarefa com os dados fornecidos
     const novaTarefa = new Tarefa({
       userId: id,
       titulo,
       tarefas: tarefa.map(t => ({tarefa: t})),
     });
 
-    // Salva a nova tarefa no banco de dados
     await novaTarefa.register();
 
     if (res.status(201)) {
@@ -40,3 +38,38 @@ exports.register = async (req, res) => {
     res.render("404");
   }
 };
+
+exports.delete = async function (req, res){
+  try {
+    if(!req.params.id) return res.render('404');
+    if(typeof req.params.id !== "string") return res.render('404');
+
+    const tarefa = await Tarefa.deleteTask(req.params.id);
+    if(!tarefa) return res.render('404');
+    
+    req.session.save(() => res.redirect("/tarefa"));
+
+  } catch (error) {
+    console.log("Erro ao deletar a tarefa:", error);
+    res.render("404");
+  }
+}
+
+exports.deleteSubTask = async function(req, res){
+  try {
+    const userId = req.session.user._id;
+    if(!userId) return res.render('404');
+    if(!req.params.idSubTask) return res.render('404');
+
+    const tarefaId = req.params.idSubTask;
+
+    const subTarefa = await Tarefa.deleteSubTask(tarefaId, userId);
+    if(!subTarefa) return res.render('404');
+
+    req.session.save(() => res.redirect("/tarefa"));
+    
+  } catch (error) {
+    console.log("Erro ao deletar a tarefa:", error);
+    res.render("404");
+  }
+}

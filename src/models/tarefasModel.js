@@ -24,6 +24,19 @@ const tarefaModel = mongoose.model("tarefas", tarefaSchema);
         const tarefas = await tarefaModel.find({userId: idUser}).exec();
         return tarefas;
      }
+
+     static async deleteTask(id){
+        const tarefa = await tarefaModel.findOneAndDelete({_id:id});
+        return tarefa;
+     }
+
+     static async deleteSubTask(tarefaId, userId){
+      const tarefa = await tarefaModel.updateOne(
+        { userId },
+        { $pull: { tarefas: { _id: tarefaId } } }
+      );
+      return tarefa;
+     }
 }
 
 
