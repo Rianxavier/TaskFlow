@@ -20,7 +20,7 @@
     
 
     <main class="main">    
-        <form class="tarefa" action="/adicionarTarefas/register" method="POST">
+        <form class="tarefa" action="/editarTarefa/<%= tarefa._id %>" method="POST">
             <h1 class="titulo">Editar Tarefa</h1>
 
             <% if (success.length > 0) { %>
@@ -41,6 +41,7 @@
                 <input type="text" id="titulo" name="titulo" required autocomplete="off" placeholder="Titulo:" value="<%= tarefa.titulo  %>">
                 <label id="labelTitulo" for="nome">Titulo:</label>
             </div>
+            <p class="conta-tarefas"><%= tarefa.tarefas.length %></p>
             <div class="container">
                 <% tarefa.tarefas.forEach((subtarefa, index) => { %>
                 <div class="box"> 
@@ -56,7 +57,7 @@
     </main>
     
     
-    <script src="/tarefaAdd.js"></script>
+    <script src="/tarefaEdit.js"></script>
     <!-- <script src="./assets/js/index.bundle.js"></script> -->
 </body>
 </html>

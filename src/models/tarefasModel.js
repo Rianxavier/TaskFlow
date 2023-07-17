@@ -20,6 +20,11 @@ const tarefaModel = mongoose.model("tarefas", tarefaSchema);
       this.tarefa =  await tarefaModel.create(this.body)
      }
 
+
+     async editarTarefa(id){
+        this.tarefa = await tarefaModel.findByIdAndUpdate(id, this.body, {new: true})
+     }
+
      static async findTask(idUser){
         const tarefas = await tarefaModel.find({userId: idUser}).exec();
         return tarefas;
@@ -43,6 +48,7 @@ const tarefaModel = mongoose.model("tarefas", tarefaSchema);
       const tarefa = await tarefaModel.findById(id);
       return tarefa;
      }
+
 }
 
 

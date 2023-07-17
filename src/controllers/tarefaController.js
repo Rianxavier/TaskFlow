@@ -74,8 +74,6 @@ exports.deleteSubTask = async function(req, res){
   }
 }
 
-
-
 exports.editButton = async function(req, res) {
   if(!req.params.id) return res.render("404");
 
@@ -85,3 +83,24 @@ exports.editButton = async function(req, res) {
   res.render("editarTarefa", {tarefa: tarefa})
 
 };
+
+exports.editar = async function (req, res) {
+ try {
+  const { id, titulo, tarefa } = req.body;
+
+  const editarTarefa = new Tarefa({
+    userId: id,
+    titulo,
+    tarefas: tarefa.map(t => ({tarefa: t})),
+  });
+  await editarTarefa.editarTarefa(req.params.id);
+
+
+  req.flash('success', 'Tarefa editada com sucesso')
+  req.session.save(() => res.redirect(`/indexEditar/${req.params.id}`));
+  return;
+ } catch (error) {
+  console.log("Erro ao editar a tarefa:", error);
+    res.render("404");
+ }
+}
