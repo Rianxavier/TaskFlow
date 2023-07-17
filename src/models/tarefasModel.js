@@ -37,6 +37,12 @@ const tarefaModel = mongoose.model("tarefas", tarefaSchema);
       );
       return tarefa;
      }
+
+     static async buscarPorId(id){
+      if(typeof id !== 'string') return;
+      const tarefa = await tarefaModel.findById(id);
+      return tarefa;
+     }
 }
 
 

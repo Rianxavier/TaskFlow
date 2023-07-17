@@ -73,3 +73,15 @@ exports.deleteSubTask = async function(req, res){
     res.render("404");
   }
 }
+
+
+
+exports.editButton = async function(req, res) {
+  if(!req.params.id) return res.render("404");
+
+  const tarefa = await Tarefa.buscarPorId(req.params.id)
+  if (!tarefa) return res.render("404");
+
+  res.render("editarTarefa", {tarefa: tarefa})
+
+};

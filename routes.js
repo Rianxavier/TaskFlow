@@ -28,5 +28,7 @@ route.post("/adicionarTarefas/register", tarefaController.register)
 route.get("/tarefa/delete/:id", tarefaController.delete);
 route.get("/tarefa/deleteSubTask/:idSubTask", tarefaController.deleteSubTask);
 
+//Rotas de Editar
+route.get("/indexEditar/:id",loginRequired, tarefaController.editButton)
 
 module.exports = route;
