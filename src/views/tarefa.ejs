@@ -37,20 +37,23 @@
                             <h3><%=tarefa.titulo %>:</h3>
                             <div class="icones">
                                 <a href="/indexEditar/<%= tarefa._id  %>"><i class="fas fa-edit"></i></a>
-                                <a href="/tarefa/delete/<%= tarefa._id  %>" class="deleteLink"><i class="fas fa-trash"></i></a>
+                                <a href="/tarefa/delete/<%= tarefa._id  %>" class="deleteTarefaTotal"><i class="fas fa-trash"></i></a>
                             </div>
                             
                         </div>
                         
                         <ul>
-                            <% tarefa.tarefas.forEach(subtarefas => { %>
-                            <li>
-                            <input type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item1">
-                            <label for="item1"><%= subtarefas.tarefa  %></label>
-                            <!-- <a href=""><i class="fas fa-edit"></i></a> -->
-                            <a href="/tarefa/deleteSubTask/<%= subtarefas._id  %>"><i class="fas fa-trash"></i></a>
-                            </li>
-                            <% }) %>
+                            <form action="/tarefa/editar-checkbox/<%= tarefa._id  %>">
+                                <% tarefa.tarefas.forEach(subtarefas => { %>
+                                    <li>
+                                    <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item1" >
+                                    <label for="item1"><%= subtarefas.tarefa  %></label>
+                                    <!-- <a href=""><i class="fas fa-edit"></i></a> -->
+                                    <a href="/tarefa/deleteSubTask/<%= subtarefas._id  %>"><i class="fas fa-trash"></i></a>
+                                    </li>
+                                    <% }) %> 
+                                    <button class="btn-salvar" type="submit">Salvar</button>
+                            </form>
                         </ul>
                     </div>
                     </div>

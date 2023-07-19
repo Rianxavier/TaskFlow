@@ -227,3 +227,11 @@ ul li a {
   border-radius: 5px;
 }
 
+.btn-salvar {
+  float: right;
+  position: relative;
+  top: 30px;
+  padding: 7px;
+  color: #fff;
+  display: none;
+}

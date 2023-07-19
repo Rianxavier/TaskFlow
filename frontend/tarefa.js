@@ -1,9 +1,9 @@
-const deleteLink = document.querySelectorAll('.deleteLink');
+const deleteTarefaTotal = document.querySelectorAll('.deleteTarefaTotal');
 const msgConfirmDelete = document.querySelector('.msgConfirmDelete');
 const confirmDeleteBtn = document.querySelector('.confirmDeleteBtn');
 const cancelDeleteBtn = document.querySelector('.cancelDeleteBtn');
 
-deleteLink.forEach((link) =>{
+deleteTarefaTotal.forEach((link) =>{
     link.addEventListener('click', function(e){
         e.preventDefault();
     
@@ -19,3 +19,12 @@ deleteLink.forEach((link) =>{
         });
     })
 })
+
+const checkboxes = document.querySelectorAll(".checkbox");
+const botaoSalvar = document.querySelector(".btn-salvar");
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("click", () => {
+        botaoSalvar.setAttribute('style', 'display:block');
+      });
+  });
