@@ -21,10 +21,30 @@ deleteTarefaTotal.forEach((link) =>{
 })
 
 const checkboxes = document.querySelectorAll(".checkbox");
-const botaoSalvar = document.querySelector(".btn-salvar");
+  const botaoSalvar = document.querySelector(".btn-salvar");
+  const estadoInicialCheckboxes = [];
 
   checkboxes.forEach(checkbox => {
+    estadoInicialCheckboxes.push(checkbox.checked);
+
     checkbox.addEventListener("click", () => {
-        botaoSalvar.setAttribute('style', 'display:block');
+        verificarMudanca();
       });
   });
+
+  function verificarMudanca() {
+    let algumMudou = false;
+
+    checkboxes.forEach((checkbox, index) => {
+      if (checkbox.checked !== estadoInicialCheckboxes[index]) {
+        algumMudou = true;
+        return;
+      }
+    });
+
+    if (algumMudou) {
+      botaoSalvar.setAttribute('style', 'display:block');
+    } else {
+        botaoSalvar.setAttribute('style', 'display:none');
+    }
+  }
