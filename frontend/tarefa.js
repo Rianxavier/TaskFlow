@@ -20,31 +20,45 @@ deleteTarefaTotal.forEach((link) =>{
     })
 })
 
-const checkboxes = document.querySelectorAll(".checkbox");
-  const botaoSalvar = document.querySelector(".btn-salvar");
-  const estadoInicialCheckboxes = [];
 
+const tarefas = document.querySelectorAll(".card-back");
+const estadoInicialCheckboxes = [];
+
+tarefas.forEach(tarefa => {
+  const checkboxes = tarefa.querySelectorAll(".checkbox");
+  const estadoInicialTarefa = [];
+  
   checkboxes.forEach(checkbox => {
-    estadoInicialCheckboxes.push(checkbox.checked);
+    const id = checkbox.dataset.id;
+    const checked = checkbox.checked;
+    estadoInicialTarefa.push({ id, checked });
 
     checkbox.addEventListener("click", () => {
-        verificarMudanca();
-      });
+      verificarMudanca(tarefa);
+    });
   });
 
-  function verificarMudanca() {
-    let algumMudou = false;
+  estadoInicialCheckboxes.push(estadoInicialTarefa);
+});
 
-    checkboxes.forEach((checkbox, index) => {
-      if (checkbox.checked !== estadoInicialCheckboxes[index]) {
-        algumMudou = true;
-        return;
-      }
-    });
+function verificarMudanca(tarefa) {
+  const checkboxes = tarefa.querySelectorAll(".checkbox");
+  const botoesSalvar = tarefa.querySelector(".btn-salvar");
 
-    if (algumMudou) {
-      botaoSalvar.setAttribute('style', 'display:block');
-    } else {
-        botaoSalvar.setAttribute('style', 'display:none');
+  let algumMudou = false;
+
+  checkboxes.forEach((checkbox, index) => {
+    const id = checkbox.dataset.id;
+    const estadoInicialCheckbox = estadoInicialCheckboxes.find(tarefa => tarefa.find(item => item.id === id));
+
+    if (checkbox.checked !== estadoInicialCheckbox[index].checked) {
+      algumMudou = true;
     }
+  });
+
+  if (algumMudou) {
+    botoesSalvar.style.display = "block";
+  } else {
+    botoesSalvar.style.display = "none";
   }
+}

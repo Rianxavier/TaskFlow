@@ -43,16 +43,15 @@
                         </div>
                         
                         <ul>
-                            <form action="/tarefa/editar-checkbox/<%= tarefa._id  %>">
-                                <% tarefa.tarefas.forEach(subtarefas => { %>
-                                    <li>
-                                    <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item1" >
-                                    <label for="item1"><%= subtarefas.tarefa  %></label>
-                                    <!-- <a href=""><i class="fas fa-edit"></i></a> -->
-                                    <a href="/tarefa/deleteSubTask/<%= subtarefas._id  %>"><i class="fas fa-trash"></i></a>
-                                    </li>
-                                    <% }) %> 
-                                    <button class="btn-salvar" type="submit">Salvar</button>
+                            <form action="/tarefa/editar-checkbox/<%= tarefa._id %>">
+                              <% tarefa.tarefas.forEach((subtarefas, index) => { %>
+                                <li>
+                                  <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked <% } %> id="item<%= index %>" data-id="<%= subtarefas._id %>">
+                                  <label for="item<%= index %>"><%= subtarefas.tarefa %></label>
+                                  <a href="/tarefa/deleteSubTask/<%= subtarefas._id %>"><i class="fas fa-trash"></i></a>
+                                </li>
+                              <% }) %> 
+                              <button  class="btn-salvar" type="submit" style="display: none;">Salvar</button>
                             </form>
                         </ul>
                     </div>

@@ -233,5 +233,6 @@ ul li a {
   top: 30px;
   padding: 7px;
   color: #fff;
-  display: none;
+  /* display: none; */
 }
+
