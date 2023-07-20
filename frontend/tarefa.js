@@ -27,7 +27,7 @@ const estadoInicialCheckboxes = [];
 tarefas.forEach(tarefa => {
   const checkboxes = tarefa.querySelectorAll(".checkbox");
   const estadoInicialTarefa = [];
-  
+
   checkboxes.forEach(checkbox => {
     const id = checkbox.dataset.id;
     const checked = checkbox.checked;
@@ -51,6 +51,8 @@ function verificarMudanca(tarefa) {
     const id = checkbox.dataset.id;
     const estadoInicialCheckbox = estadoInicialCheckboxes.find(tarefa => tarefa.find(item => item.id === id));
 
+
+
     if (checkbox.checked !== estadoInicialCheckbox[index].checked) {
       algumMudou = true;
     }
@@ -62,3 +64,9 @@ function verificarMudanca(tarefa) {
     botoesSalvar.style.display = "none";
   }
 }
+
+botoesSalvar.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  alert("Salvar");
+})

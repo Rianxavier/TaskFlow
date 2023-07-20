@@ -104,3 +104,17 @@ exports.editar = async function (req, res) {
     res.render("404");
  }
 }
+
+exports.editarCheckbox = async function(req, res) {
+  try {
+    if (!req.params.id) return res.render("404");
+    if (!req.body.tarefa) return res.render("404");
+
+    await Tarefa.editarConcluida(req.params.id, req.body.tarefa)
+    req.session.save(() => res.redirect("/tarefa"));
+
+  } catch (error) {
+    console.log("Erro ao editar a tarefa:", error);
+    res.render("404");
+  }
+};

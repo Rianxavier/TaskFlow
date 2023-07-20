@@ -31,4 +31,6 @@ route.get("/tarefa/deleteSubTask/:idSubTask", tarefaController.deleteSubTask);
 //Rotas de Editar
 route.get("/indexEditar/:id",loginRequired, tarefaController.editButton)
 route.post("/editarTarefa/:id",loginRequired, tarefaController.editar);
+route.post("/tarefa/editar-checkbox/:id",loginRequired, tarefaController.editarCheckbox)
+
 module.exports = route;
