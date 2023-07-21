@@ -47,12 +47,13 @@
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                 <% tarefa.tarefas.forEach((subtarefas, index) => { %>
                                 <li>
-                                    <input type="hidden" name="id">
-                                    <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked disabled<% } %> id="item<%= index %>" data-id="<%= subtarefas._id %>" name="tarefa[<%= index %>].concluida" value="<%= subtarefas._id %>">
-                                    <label for="item<%= index %>"><%= subtarefas.tarefa %></label>
+                                    <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked disabled<% } %> id="item-<%= index %>" data-id="<%= subtarefas._id %>" name="tarefa[<%= index %>].concluida" value="<%= subtarefas._id %>">
+                                    <label for="item-<%= index %>"><%= subtarefas.tarefa %></label>
                                     <a href="/tarefa/deleteSubTask/<%= subtarefas._id %>"><i class="fas fa-trash"></i></a>
                                 </li>
+                                
                               <% }) %> 
+                              <p class="conta-tarefas"><%= tarefa.tarefas.length %></p>
                               <button  class="btn-salvar" type="submit" style="display: none;">Salvar</button>
                             </form>
                         </ul>

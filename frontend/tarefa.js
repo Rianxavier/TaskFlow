@@ -25,6 +25,13 @@ const tarefas = document.querySelectorAll(".card-back");
 const estadoInicialCheckboxes = [];
 
 tarefas.forEach(tarefa => {
+  const contaTarefa = tarefa.querySelector('.conta-tarefas');
+  const contadorTarefa = parseInt(contaTarefa.textContent);
+  console.log(contadorTarefa);
+
+  if (contadorTarefa > 6) {
+    tarefa.setAttribute('style', 'overflow-y: auto;');
+  }
   const checkboxes = tarefa.querySelectorAll(".checkbox");
   const estadoInicialTarefa = [];
 
@@ -64,9 +71,3 @@ function verificarMudanca(tarefa) {
     botoesSalvar.style.display = "none";
   }
 }
-
-botoesSalvar.addEventListener('submit', function(e){
-  e.preventDefault();
-
-  alert("Salvar");
-})
