@@ -20,14 +20,27 @@ deleteTarefaTotal.forEach((link) =>{
     })
 })
 
+// const labelsCheckbox = document.querySelectorAll('.label');
+
+//   labelsCheckbox.forEach((label) =>{
+//     label.addEventListener('click', () =>{
+//       const checkbox = label.previousElementSibling;
+
+//       if(checkbox.checked) {
+//         checkbox.checked = false;
+//       } else{
+//         checkbox.checked = true;
+//       }
+//     });
+//   });
+
 
 const tarefas = document.querySelectorAll(".card-back");
 const estadoInicialCheckboxes = [];
 
 tarefas.forEach(tarefa => {
   const contaTarefa = tarefa.querySelector('.conta-tarefas');
-  const contadorTarefa = parseInt(contaTarefa.textContent);
-  console.log(contadorTarefa);
+  const contadorTarefa = parseInt(contaTarefa.textContent);  
 
   if (contadorTarefa > 6) {
     tarefa.setAttribute('style', 'overflow-y: auto;');

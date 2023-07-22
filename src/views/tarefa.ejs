@@ -7,8 +7,15 @@
 <body>
 
     <nav>
-        <a href="/cadastro">TaskFlow</a>
-        <a href="/logout">Sair</a>
+        <a href="/cadastro" class="logo">TaskFlow</a>
+
+        <ul class="nav-list">
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="/logout" class="sair">Sair</a></li>
+          </ul>
+        
         
 
         <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -48,7 +55,7 @@
                                 <% tarefa.tarefas.forEach((subtarefas, index) => { %>
                                 <li>
                                     <input class="checkbox" type="checkbox" <% if(subtarefas.concluida) { %>checked disabled<% } %> id="item-<%= index %>" data-id="<%= subtarefas._id %>" name="tarefa[<%= index %>].concluida" value="<%= subtarefas._id %>">
-                                    <label for="item-<%= index %>"><%= subtarefas.tarefa %></label>
+                                    <label for="item-<%= index %>" class="label"><%= subtarefas.tarefa %></label>
                                     <a href="/tarefa/deleteSubTask/<%= subtarefas._id %>"><i class="fas fa-trash"></i></a>
                                 </li>
                                 
