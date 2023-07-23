@@ -7,23 +7,23 @@
 <body>
 
     <nav>
-        <a href="/cadastro" class="logo">TaskFlow</a>
+        <h2 class="logo">TaskFlow</h2>
 
         <ul class="nav-list">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Projetos</a></li>
+            <li><a href="/tarefa">Tarefas</a></li>
             <li><a href="#">Contato</a></li>
+            <li><a href="#">Sobre</a></li>
             <li><a href="/logout" class="sair">Sair</a></li>
           </ul>
         
-        
-
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12h18M3 6h18M3 18h18"></path>
-        </svg>           -->
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
     </nav>
     <div class="topo">
-        <h2>Bem vindo, <%= user.nome  %></h2>
+        <h2>Bem vindo, <%= user.nome  %>!</h2>
         <button type="button"> <a class="addTarefas" href="/adicionarTarefas">Adicionar Tarefa</a></button>
     </div>
     
@@ -88,6 +88,7 @@
     
     
     <script src="/tarefa.js"></script>
+    <script src="/menu.js"></script>
     <!-- <script src="./assets/js/index.bundle.js"></script> -->
 </body>
 </html>
