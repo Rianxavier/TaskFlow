@@ -49,8 +49,9 @@
             <div class="container">
                 <% tarefa.tarefas.forEach((subtarefa, index) => { %>
                 <div class="box"> 
-                    <input type="text" id="tarefa" name="tarefa[<%= index %>].tarefa" required autocomplete="off" placeholder="Tarefa:" value="<%= subtarefa    .tarefa %>">
+                    <input type="text" id="tarefa" name="tarefa[<%= index %>].tarefa" required autocomplete="off" placeholder="Tarefa:" value="<%= subtarefa.tarefa %>">
                     <label id="labelTitulo" for="nome">Tarefa:</label>
+                    <input type="hidden" name="concluida[<%= index %>].concluida" value="<%= subtarefa.concluida %>">
                 </div>
                 <% }) %>
             </div>

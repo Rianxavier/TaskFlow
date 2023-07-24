@@ -86,13 +86,14 @@ exports.editButton = async function(req, res) {
 
 exports.editar = async function (req, res) {
  try {
-  const { id, titulo, tarefa } = req.body;
+  const { id, titulo, tarefa, concluida } = req.body;
 
   const editarTarefa = new Tarefa({
     userId: id,
     titulo,
-    tarefas: tarefa.map(t => ({tarefa: t})),
+    tarefas: tarefa.map((t, index) => ({tarefa: t, concluida: concluida[index]}))
   });
+  
   await editarTarefa.editarTarefa(req.params.id);
 
 
