@@ -27,8 +27,9 @@
         <button type="button"> <a class="addTarefas" href="/adicionarTarefas">Adicionar Tarefa</a></button>
     </div>
     
+    <h1 class="titulo">Tarefas</h1>
     <main>
-        <h1 class="titulo">Tarefas</h1>
+        
         <div class="container">
 
             <% if(tarefas.length>0){ %>
@@ -75,7 +76,7 @@
                 
             <% } %>
             <div class="msgConfirmDelete">
-                <p id="alertText">Tem certeza que deseja deletar a tarefa toda?</p>
+                <p id="alertText">Você tem certeza que deseja deletar toda a tarefa? <b>Esta ação não pode ser desfeita.</b></p>
                 <div class="buttonContainer">
                     <button class="alertBtn confirmDeleteBtn" type="button">Deletar</button>
                     <button class="alertBtn cancelDeleteBtn" type="button">Manter</button>

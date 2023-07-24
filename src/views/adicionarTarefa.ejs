@@ -5,16 +5,20 @@
 <body>
 
     <nav>
-        <a href="/cadastro">TaskFlow</a>
-        <div class="float-rigth">
-            <a href="/tarefa">Tarefas</a>
-            <a href="/logout">Sair</a>
-        </div>
-        
+        <h2 class="logo">TaskFlow</h2>
 
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12h18M3 6h18M3 18h18"></path>
-        </svg>           -->
+        <ul class="nav-list">
+            <li><a href="/tarefa">Tarefas</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="/logout" class="sair">Sair</a></li>
+          </ul>
+        
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
     </nav>
     
     
@@ -55,6 +59,7 @@
     
     
     <script src="/tarefaAdd.js"></script>
+    <script src="/menu.js"></script>
     <!-- <script src="./assets/js/index.bundle.js"></script> -->
 </body>
 </html>
