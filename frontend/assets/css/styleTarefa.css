@@ -87,7 +87,7 @@ button {
   color: #003070;
 }
 .titulo {
-  font-size: 2.5em;
+  font-size: 2.26em;
   color: Orange;
   text-align: center;
   position: relative;
@@ -101,10 +101,8 @@ main{
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
-  /* margin: auto;s */
-  /* align-items: center; */
-  justify-content: center;
+  width: 77%;
+  margin: 0;
 }
 
 //Card
@@ -118,6 +116,7 @@ main{
   height: 280px;
   transition: transform 0.9s;
   transform-style: preserve-3d;
+  
 }
 
 .card-inner:hover {
@@ -251,36 +250,8 @@ b{
   color: #fff;
 }
 
-input[type="checkbox"]{
-  /* display: none; */
-  
-}
-
 label{
   cursor: pointer;
-}
-.checkbox + label::before {
-  content: '';
-  display: inline-block;
-  cursor: pointer;
-  width: 0.8em;
-  height: 0.8em;
-  border-radius: 3px;
-  margin-right: 5px;
-  border: 2px solid gray;
-  margin-bottom: -2px;
-}
-input[type="checkbox"]:checked + label {
-  color: green;
-}
-input[type="checkbox"]:checked + label::before {
-  background: green;
-  text-align: center;
-  font-size: 14px;
-  padding: 1px;
-  line-height: 1em;
-  content: " ✓ ";
-  color: white;
 }
 
 .conta-tarefas {
@@ -299,10 +270,35 @@ input[type="checkbox"]:checked + label::before {
   margin: 8px;
   transition: 0.3s;
 }
+
+@media (max-width:1050px){
+  nav {
+    height: 5vh;
+  }
+  .topo{
+    margin-top: 75px;
+  }
+  nav h2{
+    margin-left: -85px;
+  }
+
+  nav .mobile-menu{
+    margin-right: -85px;
+  }
+  .container{
+    width: 74%;
+  }
+
+}
+
+
 @media (max-width: 968px) {
   body {
     /* background-color: black; */
     overflow-x: hidden;
+  }
+  nav {
+    height: 7vh;
   }
   .nav-list {
     position: absolute;
@@ -325,6 +321,27 @@ input[type="checkbox"]:checked + label::before {
   }
   .mobile-menu {
     display: block;
+  }
+
+  .topo{
+    margin: 75px -80px 0px;
+  }
+
+  .topo button{
+    width: 140px;
+    font-size: 13px;
+  }
+  
+  .topo h2{
+    font-size: 20px;
+  }
+  .container {
+    width: 85%;
+  }
+
+  .card-inner{
+    width: 196px;
+    height: 280px;
   }
 }
 .nav-list.active {
@@ -353,3 +370,44 @@ input[type="checkbox"]:checked + label::before {
 .mobile-menu.active .line3 {
   transform: rotate(45deg) translate(-5px, -7px);
 } 
+
+@media (max-width: 620px){
+  nav{
+    height: 8vh;
+  }
+  .topo {
+    /* background-color: red; */
+    width: 80%;
+    margin: auto;
+    margin-top: 75px;
+  }
+  .container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 420px){
+  .topo button{
+    width: 120px;
+    font-size: 12px;
+    padding: 11px;
+    margin-right: -7px;
+  }
+  .topo h2{
+    font-size: 18px;
+  }
+  nav h2{
+    margin-left: 0px;
+  }
+
+  nav .mobile-menu{
+    margin-right: 0px;
+  }
+  .titulo{
+    font-size: 2.0em;
+  }
+  .container {
+    width: 58%;
+  }
+  
+}
