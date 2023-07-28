@@ -22,14 +22,14 @@
             <div class="line3"></div>
           </div>
     </nav>
-    <div class="topo">
-        <h2>Bem vindo, <%= user.nome  %>!</h2>
-        <button type="button"> <a class="addTarefas" href="/adicionarTarefas">Adicionar Tarefa</a></button>
-    </div>
     
-    <h1 class="titulo">Tarefas</h1>
     <main>
+        <div class="topo">
+            <h2>Bem vindo, <%= user.nome  %>!</h2>
+            <button type="button"> <a class="addTarefas" href="/adicionarTarefas">Adicionar Tarefa</a></button>
+        </div>
         
+        <h1 class="titulo">Tarefas</h1>
         <div class="container">
 
             <% if(tarefas.length>0){ %>

@@ -8,6 +8,7 @@
 body {
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   background-color: white;
+  overflow-x: hidden;
 }
 
 ul li a {
@@ -77,10 +78,11 @@ button {
 }
 .topo {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: relative;
-  margin: 65px -100px 0px;
+  margin: 9vh -100px 0px;
+  width: 77%;
 }
 
 .topo h2 {
@@ -96,13 +98,14 @@ button {
 
 main{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 77%;
-  margin: 0;
+  width: 75%;
 }
 
 //Card
@@ -271,6 +274,12 @@ label{
   transition: 0.3s;
 }
 
+@media (max-width: 1700px) {
+  .container{
+    width: 79%;
+  }
+}
+
 @media (max-width:1050px){
   nav {
     height: 5vh;
@@ -386,7 +395,7 @@ label{
   }
 }
 
-@media (max-width: 420px){
+@media (max-width: 450px){
   .topo button{
     width: 120px;
     font-size: 12px;
@@ -407,7 +416,8 @@ label{
     font-size: 2.0em;
   }
   .container {
-    width: 58%;
+    /* width: 58%; */
+    justify-content: center;
   }
   
 }
