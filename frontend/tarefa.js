@@ -20,19 +20,23 @@ deleteTarefaTotal.forEach((link) =>{
     })
 })
 
-// const labelsCheckbox = document.querySelectorAll('.label');
+document.addEventListener('DOMContentLoaded', function() {
+  const contadorTarefas = document.getElementById('contador-tarefas');
+  const linkDeletarSubtarefa = document.querySelectorAll('a[href^="/tarefa/deleteSubTask/"]');
 
-//   labelsCheckbox.forEach((label) =>{
-//     label.addEventListener('click', () =>{
-//       const checkbox = label.previousElementSibling;
+  linkDeletarSubtarefa.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const tamanhoSubtarefas = parseInt(contadorTarefas.innerText);
 
-//       if(checkbox.checked) {
-//         checkbox.checked = false;
-//       } else{
-//         checkbox.checked = true;
-//       }
-//     });
-//   });
+      if (tamanhoSubtarefas > 1) {
+        window.location.href = this.getAttribute('href');
+      } else {
+        alert('É necessário ter pelo menos uma tarefa.');
+      }
+    });
+  });
+});
 
 
 const tarefas = document.querySelectorAll(".card-back");
